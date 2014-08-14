@@ -418,6 +418,7 @@ module.exports = function (grunt) {
     grunt.task.run([
       'clean:server',
       'wiredep',
+      'railsServer:development',
       'concurrent:server',
       'autoprefixer',
       'configureProxies',
@@ -464,4 +465,5 @@ module.exports = function (grunt) {
   ]);
 
   grunt.loadNpmTasks('grunt-connect-proxy');
+  grunt.loadNpmTasks('grunt-rails-server');
 };

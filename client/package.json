@@ -1,6 +1,7 @@
 {
   "name": "fakelunchhub",
   "version": "0.0.0",
+  "description": "The website you can literally eat.",
   "dependencies": {},
   "devDependencies": {
     "grunt": "^0.4.1",
@@ -23,6 +24,7 @@
     "grunt-karma": "^0.8.3",
     "grunt-newer": "^0.7.0",
     "grunt-ngmin": "^0.0.3",
+    "grunt-rails-server": "jasonswett/grunt-rails-server",
     "grunt-svgmin": "^0.4.0",
     "grunt-usemin": "^2.1.1",
     "grunt-wiredep": "^1.7.0",
