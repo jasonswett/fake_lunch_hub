@@ -1,5 +1,8 @@
 <h1>Groups</h1>
 
+<input ng-model="group.name" type="text">
+<button id="group-save-button" ng-click="save()">Save Group</button>
+
 <ul ng-repeat="group in groups">
   <li>{{group.name}}</li>
 </ul>

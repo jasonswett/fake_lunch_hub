@@ -42,7 +42,7 @@ module.exports = function (grunt) {
 
     shell: {
       cleanRailsTestDatabase: {
-        command: 'rake db:reset RAILS_ENV=test',
+        command: 'rake db:test:prepare',
       },
       startWebdriverManagerServer: {
         command: 'node_modules/protractor/bin/webdriver-manager start',

@@ -18,7 +18,7 @@ class GroupsController < ApplicationController
   # POST /groups
   # POST /groups.json
   def create
-    @group = Group.new(params[:group])
+    @group = Group.new(group_params)
 
     if @group.save
       render json: @group, status: :created, location: @group
@@ -32,7 +32,7 @@ class GroupsController < ApplicationController
   def update
     @group = Group.find(params[:id])
 
-    if @group.update(params[:group])
+    if @group.update(group_params)
       head :no_content
     else
       render json: @group.errors, status: :unprocessable_entity
@@ -46,5 +46,11 @@ class GroupsController < ApplicationController
     @group.destroy
 
     head :no_content
+  end
+
+  private
+
+  def group_params
+    params.require(:group).permit(:name)
   end
 end
