@@ -1,4 +1,4 @@
-// Generated on 2014-07-18 using generator-angular 0.9.5
+// Generated on 2014-10-08 using generator-angular 0.9.8
 'use strict';
 
 // # Globbing
@@ -71,24 +71,11 @@ module.exports = function (grunt) {
         hostname: 'localhost',
         livereload: 35729
       },
-      proxies: [
-        {
-          context: '/api',
-          host: 'localhost',
-          port: 3000
-        }
-      ],
       livereload: {
         options: {
           open: true,
-          middleware: function (connect, options) {
-            if (!Array.isArray(options.base)) {
-              options.base = [options.base];
-            }
-
-            // Setup the proxy
-            var middlewares = [
-              require('grunt-connect-proxy/lib/utils').proxyRequest,
+          middleware: function (connect) {
+            return [
               connect.static('.tmp'),
               connect().use(
                 '/bower_components',
@@ -96,12 +83,6 @@ module.exports = function (grunt) {
               ),
               connect.static(appConfig.app)
             ];
-
-            // Make directory browse-able.
-            var directory = options.directory || options.base[options.base.length - 1];
-            middlewares.push(connect.directory(directory));
-
-            return middlewares;
           }
         }
       },
@@ -181,9 +162,6 @@ module.exports = function (grunt) {
 
     // Automatically inject Bower components into the app
     wiredep: {
-      options: {
-        cwd: '<%= yeoman.app %>'
-      },
       app: {
         src: ['<%= yeoman.app %>/index.html'],
         ignorePath:  /\.\.\//
@@ -328,15 +306,14 @@ module.exports = function (grunt) {
       }
     },
 
-    // ngmin tries to make the code safe for minification automatically by
-    // using the Angular long form for dependency injection. It doesn't work on
-    // things like resolve or inject so those have to be done manually.
-    ngmin: {
+    // ng-annotate tries to make the code safe for minification automatically
+    // by using the Angular long form for dependency injection.
+    ngAnnotate: {
       dist: {
         files: [{
           expand: true,
           cwd: '.tmp/concat/scripts',
-          src: '*.js',
+          src: ['*.js', '!oldieshim.js'],
           dest: '.tmp/concat/scripts'
         }]
       }
@@ -420,7 +397,6 @@ module.exports = function (grunt) {
       'wiredep',
       'concurrent:server',
       'autoprefixer',
-      'configureProxies',
       'connect:livereload',
       'watch'
     ]);
@@ -435,7 +411,6 @@ module.exports = function (grunt) {
     'clean:server',
     'concurrent:test',
     'autoprefixer',
-    'configureProxies',
     'connect:test',
     'karma'
   ]);
@@ -447,7 +422,7 @@ module.exports = function (grunt) {
     'concurrent:dist',
     'autoprefixer',
     'concat',
-    'ngmin',
+    'ngAnnotate',
     'copy:dist',
     'cdnify',
     'cssmin',
@@ -462,6 +437,4 @@ module.exports = function (grunt) {
     'test',
     'build'
   ]);
-
-  grunt.loadNpmTasks('grunt-connect-proxy');
 };
