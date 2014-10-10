@@ -24,6 +24,18 @@ module.exports = function (grunt) {
   // Define the configuration for all the tasks
   grunt.initConfig({
 
+    shell: {
+      startRailsServer: {
+        command: 'rails server',
+        options: {
+          // If async: true were omitted, the rails server
+          // command would prevent subsequent commands
+          // from running.
+          async: true
+        }
+      }
+    },
+
     // Project settings
     yeoman: appConfig,
 
@@ -430,6 +442,7 @@ module.exports = function (grunt) {
       'clean:server',
       'wiredep',
       'concurrent:server',
+      'shell:startRailsServer',
       'autoprefixer',
       'configureProxies',
       'connect:livereload',
@@ -474,4 +487,5 @@ module.exports = function (grunt) {
   ]);
 
   grunt.loadNpmTasks('grunt-connect-proxy');
+  grunt.loadNpmTasks('grunt-shell-spawn');
 };
