@@ -57,7 +57,7 @@ RSpec.configure do |config|
   end
 
   config.after(:all, type: :feature) do
-#    FileUtils.rm_rf(Rails.root.join("public"))
+    FileUtils.rm_rf(Rails.root.join("public"))
   end
 
   config.before(:each) do

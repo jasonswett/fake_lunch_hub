@@ -19,4 +19,6 @@ group :test do
   gem 'selenium-webdriver'
   gem 'database_cleaner'
   gem 'compass'
+  gem 'factory_girl_rails'
+  gem 'faker'
 end

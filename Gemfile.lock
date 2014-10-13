@@ -55,6 +55,13 @@ GEM
       rails (~> 4.1)
     diff-lcs (1.2.5)
     erubis (2.7.0)
+    factory_girl (4.4.0)
+      activesupport (>= 3.0.0)
+    factory_girl_rails (4.4.1)
+      factory_girl (~> 4.4.0)
+      railties (>= 3.0.0)
+    faker (1.4.3)
+      i18n (~> 0.5)
     ffi (1.9.3)
     fssm (0.2.10)
     hike (1.2.3)
@@ -145,6 +152,8 @@ DEPENDENCIES
   compass
   database_cleaner
   devise_token_auth
+  factory_girl_rails
+  faker
   pg
   rack-rewrite
   rails (= 4.1.6)
