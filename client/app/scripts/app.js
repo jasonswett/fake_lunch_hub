@@ -29,6 +29,10 @@ app.config(function ($routeProvider, $locationProvider) {
       templateUrl: 'views/user_sessions/new.html',
       controller: 'UserSessionsCtrl'
     })
+    .when('/sign_up', {
+      templateUrl: 'views/user_registrations/new.html',
+      controller: 'UserRegistrationsCtrl'
+    })
     .when('/groups', {
       templateUrl: 'views/groups.html',
       controller: 'GroupsCtrl'

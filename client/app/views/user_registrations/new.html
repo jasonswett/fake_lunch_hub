@@ -1,0 +1,33 @@
+<form ng-submit="handleRegBtnClick()" role="form" ng-init="registrationForm = {}">
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email"
+           name="email"
+           id="email"
+           ng-model="registrationForm.email"
+           required="required"
+           class="form-control">
+  </div>
+
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password"
+           name="password"
+           id="password"
+           ng-model="registrationForm.password"
+           required="required"
+           class="form-control">
+  </div>
+
+  <div class="form-group">
+    <label for="password_confirmation">Password confirmation</label>
+    <input type="password"
+           name="password_confirmation"
+           id="password_confirmation"
+           ng-model="registrationForm.password_confirmation"
+           required="required"
+           class="form-control">
+  </div>
+
+  <button type="submit" class="btn btn-primary btn-lg">Register</button>
+</form>

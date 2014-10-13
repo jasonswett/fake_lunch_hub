@@ -3,8 +3,8 @@ require 'spec_helper'
 feature 'Authentication', js: true do
   before do
 		@user = FactoryGirl.create(:confirmed_user)
-    visit '/sign_in'
     @login_page = LoginPage.new
+    @login_page.visit
   end
 
   feature 'login' do
