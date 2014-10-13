@@ -26,6 +26,8 @@
           <li class="active"><a ng-href="/">Home</a></li>
           <li><a ng-href="/groups">Groups</a></li>
           <li><a ng-href="/about">About</a></li>
+          <li ng-show="!user.id"><a ng-href="/sign_in">Sign in</a></li>
+          <li ng-show="user.id"><a ng-click='signOut()'>Sign out</a></li>
         </ul>
         <h3 class="text-muted">fakeLunchHub</h3>
       </div>
