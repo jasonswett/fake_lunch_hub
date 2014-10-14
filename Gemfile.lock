@@ -1,6 +1,7 @@
 GIT
-  remote: https://github.com/lynndylanhurley/devise_token_auth.git
-  revision: a118b95833ad32fdb37101c3fa60fa95ac11f1bf
+  remote: https://github.com/jasonswett/devise_token_auth.git
+  revision: 30e7f8dddefc6aca245c34a7743dfdeaedaababc
+  branch: return-full-error-messages
   specs:
     devise_token_auth (0.1.29)
       devise (~> 3.2)

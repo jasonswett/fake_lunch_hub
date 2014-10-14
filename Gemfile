@@ -8,7 +8,7 @@ gem 'spring', :group => :development
 gem 'pg'
 
 # Use devise_token_auth for authentication.
-gem 'devise_token_auth', git: 'https://github.com/lynndylanhurley/devise_token_auth.git'
+gem 'devise_token_auth', git: 'https://github.com/jasonswett/devise_token_auth.git', branch: 'return-full-error-messages'
 gem 'omniauth'
 
 # Use rack-rewrite to allow use of HTML5 pushState.
